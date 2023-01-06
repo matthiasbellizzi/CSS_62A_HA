@@ -1,0 +1,80 @@
+<div class="card">
+    <h5 class="card-header">Add a Product</h5>
+    <div class="card-body">
+        <form novalidate [formGroup]="appForm" (ngSubmit)="submitForm()">
+<!-- 
+            <div class="form-group">
+                <label for="txtappointmentId">appointmentId</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    formControlName="appointmentId"
+                    id="txtappointmentId"
+                    placeholder="Enter appointmentId">
+
+                    <span class="help-block" 
+                        *ngIf="(appForm.get('appointmentId')?.touched || appForm.get('appointmentId')?.dirty)
+                                && appForm.get('appointmentId')?.errors">
+                        <span *ngIf="appForm.get('appointmentId')?.errors?.['required']">appointmentId is required</span>
+                        <span *ngIf="appForm.get('appointmentId')?.errors?.['productappointmentIdInvalid']">Invalid appointmentId format</span>
+                    </span>                    
+            </div> -->
+
+            <div class="form-group">
+                <label for="txtownerIdCardNumber">Id Card Number</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    formControlName="ownerIdCardNumber"
+                    id="txtownerIdCardNumber"
+                    placeholder="Enter ownerIdCardNumber">                    
+            </div>     
+            
+            <div class="form-group">
+                <label for="txtpatientName">patient Name</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    formControlName="patientName"
+                    id="txtpatientName"
+                    placeholder="Enter patientName">                  
+            </div>       
+            
+            <div class="form-group">
+                <label for="txtanimalType">animalType</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    formControlName="animalType"
+                    id="txtanimalType"
+                    placeholder="Enter animalType">                  
+            </div>   
+            
+            <div class="form-group">
+                <label for="txtownerName">ownerName</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    formControlName="ownerName"
+                    id="txtownerName"
+                    placeholder="Enter ownerName">                  
+            </div>  
+
+            <div class="form-group">
+                <label for="txtownerSurname">ownerSurname</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    formControlName="ownerSurname"
+                    id="txtownerSurname"
+                    placeholder="Enter ownerSurname">                  
+            </div>  
+                      
+            
+            <div class="mt-2">
+                <button type="submit" class="btn btn-primary" >Submit</button>
+            </div>
+            <!-- [disabled]="!appForm.valid" -->
+        </form>
+    </div>
+</div>

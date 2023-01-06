@@ -1,0 +1,35 @@
+<div class=" table=responsive mt-3" *ngIf="appointments !=null && appointments.length > 0">
+    <table  class="table">
+        <thead >
+            <tr>
+                <th>Id</th>
+                <th>Pet Name</th>
+                <th>Breed</th>
+                <th>Owner Name</th>
+                <th>Owner Surname</th>
+                <!-- <th>Appointment Date and Time</th> -->
+                <th>Appointment Duration</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let appointment of appointments">
+
+                <td>{{appointment.appointmentId}}</td>
+                <td>{{appointment.ownerIdCardNumber}}</td>
+                <td>{{appointment.patientName}}</td>
+                <td>{{appointment.animalType}}</td>
+                <td>{{appointment.ownerName}}</td>
+                <td>{{appointment.ownerSurname}}</td>
+                <td>{{appointment.appointmentDuration}}</td>
+
+                <td><a [routerLink]="['/appointment-list',appointment.appointmentId]"><button class="btn btn-primary" (click)="viewButton()">View</button></a></td>
+                <!-- <td><a [routerLink]="['/appointment-view',appointment.idCardNumber]">View</a></td> -->
+                
+                <td><button class="btn btn-primary" (click)="updateButton()">Update</button></td>
+                <td><button class="btn btn-primary" (click)="deleteButton()">Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- <button *ngIf="item.isCompleted == false" class="btn btn-primary" (click)="onButtonClicked(item)">Mark Completed</button> -->
