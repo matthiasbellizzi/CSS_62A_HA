@@ -11,6 +11,9 @@ import { AppointmentBooking } from './services/appointment.service';
 import { AppRoutingModule } from './app-routing.module';
 import { AppointmentViewGuardService } from './services/appointment-view-guard.service';
 import { AddAppointmentComponent } from './add-appointment/add-appointment.component';
+import { UpdateComponent } from './update/update.component';
+import { DeleteComponent } from './delete/delete.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { AddAppointmentComponent } from './add-appointment/add-appointment.compo
     AppointmentListComponent,
     AppointmentViewComponent,
     HomeComponent,
-    AddAppointmentComponent
+    AddAppointmentComponent,
+    UpdateComponent,
+    DeleteComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

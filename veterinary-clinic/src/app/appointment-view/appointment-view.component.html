@@ -1,14 +1,24 @@
 <p>appointment-view works!</p>
 <div class="card" *ngIf="app != null">
     <div class="card-header">
-        Product ID: {{app.ownerIdCardNumber}}
+        Appointment ID: {{app.appointmentId}}
     </div>
 
     <div class="card-body">
         
         <div class="row">
-            <div class="col-md-2">Pet Name:</div>
+            <div class="col-md-2">ownerIdCardNumber</div>
+            <div class="col-md-10">{{app.ownerIdCardNumber}}</div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">patientName:</div>
             <div class="col-md-10">{{app.patientName}}</div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">Full Owner Name:</div>
+            <div class="col-md-10">{{app.ownerName + app.ownerSurname}}</div>
         </div>
 
         <div class="row">
@@ -17,13 +27,28 @@
         </div>
 
         <div class="row">
-            <div class="col-md-2">ownerName:</div>
-            <div class="col-md-10">{{app.ownerName + app.ownerSurname}}</div>
+            <div class="col-md-2">appointmentDuration:</div>
+            <div class="col-md-10">{{app.appointmentDuration}}</div>
         </div>
 
         <div class="row">
-            <div class="col-md-2">Duration:</div>
-            <div class="col-md-10">{{app.appointmentDuration}}</div>
+            <div class="col-md-2">Date and Time:</div>
+            <div class="col-md-10">{{app.appointmentDate + ' ' + app.appointmentTime}}</div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">ownerContactNumber:</div>
+            <div class="col-md-10">{{app.ownerContactNumber}}</div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">reasonForAppointment:</div>
+            <div class="col-md-10">{{app.reasonForAppointment}}</div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">vetNotes:</div>
+            <div class="col-md-10">{{app.vetNotes}}</div>
         </div>
 
 

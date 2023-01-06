@@ -37,4 +37,4 @@ export class AppointmentBooking {
     deleteAppointment(id: number): Observable<any> {
         return this.httpClient.delete(this.endpoint + "/" + id);
     }
-} 
+}  
