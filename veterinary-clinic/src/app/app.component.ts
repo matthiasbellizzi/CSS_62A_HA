@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LoginComponent } from './login/login.component';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'veterinary-clinic';
+
+
+  logoutButton(): void {
+      localStorage.setItem('isUserLoggedIn',"false");
+
+      localStorage.removeItem('returnedRole');
+      localStorage.removeItem('returnedUsername');
+      localStorage.removeItem('returnedToken');
+      //localStorage.removeItem('isUserLoggedIn'); 
+    }
 }

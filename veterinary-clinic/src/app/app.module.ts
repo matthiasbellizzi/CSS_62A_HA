@@ -9,7 +9,6 @@ import { AppointmentViewComponent } from './appointment-view/appointment-view.co
 import { HomeComponent } from './home/home.component';
 import { AppointmentBooking } from './services/appointment.service';
 import { AppRoutingModule } from './app-routing.module';
-import { AppointmentViewGuardService } from './services/appointment-view-guard.service';
 import { AddAppointmentComponent } from './add-appointment/add-appointment.component';
 import { UpdateComponent } from './update/update.component';
 import { DeleteComponent } from './delete/delete.component';
@@ -34,8 +33,7 @@ import { LoginComponent } from './login/login.component';
     ReactiveFormsModule
   ],
   providers: [
-    AppointmentBooking,
-    AppointmentViewGuardService
+    AppointmentBooking
   ],
   bootstrap: [AppComponent]
 })

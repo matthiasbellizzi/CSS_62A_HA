@@ -9,8 +9,8 @@ import { AppointmentBooking } from '../services/appointment.service';
   styleUrls: ['./appointment-view.component.css']
 })
 export class AppointmentViewComponent implements OnInit {
-
-  app?: Appointment;
+ 
+  appointments?: Appointment;
 
   constructor(
     private route: ActivatedRoute,
@@ -22,7 +22,7 @@ export class AppointmentViewComponent implements OnInit {
     let id: number = Number(this.route.snapshot.paramMap.get('id'));
     //console.log(id);
     this.appointmentBooking.getAppointmentById(id).subscribe((res: Appointment) => {
-      this.app = res;
+      this.appointments = res;
     });
   }
 

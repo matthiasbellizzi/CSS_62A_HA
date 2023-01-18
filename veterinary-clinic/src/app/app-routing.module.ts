@@ -6,8 +6,8 @@ import { AddAppointmentComponent } from './add-appointment/add-appointment.compo
 import { AppointmentViewComponent } from './appointment-view/appointment-view.component';
 import { UpdateComponent } from './update/update.component';
 import { DeleteComponent } from './delete/delete.component';
-import { AppointmentViewGuardService } from './services/appointment-view-guard.service';
 import { LoginComponent } from './login/login.component';
+import { AuthGuardGuard } from './auth-guard.guard';
 
 
 const routes: Routes = [
@@ -15,22 +15,23 @@ const routes: Routes = [
   {
     path: 'appointment-list/:id', 
     component: AppointmentViewComponent,
-    canActivate: [AppointmentViewGuardService]
+    canActivate: [AuthGuardGuard]
   },
   {
     path: 'update/:id', 
     component: UpdateComponent,
-    canActivate: [AppointmentViewGuardService]
+    //canActivate: [AuthGuardGuard]
   },
   {
     path: 'delete/:id', 
     component: DeleteComponent,
-    canActivate: [AppointmentViewGuardService]
+    //canActivate: [AuthGuardGuard]
   },
   {path: 'add-appointment', component: AddAppointmentComponent},
   {path: 'login', component: LoginComponent},
   {path: '',redirectTo:'/appointment-list', pathMatch:'full'}
   // {path: 'update', component: UpdateComponent},
+
 ];
 
 @NgModule({

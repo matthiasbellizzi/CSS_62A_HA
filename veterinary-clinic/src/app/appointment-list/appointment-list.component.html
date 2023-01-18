@@ -10,7 +10,7 @@
                 <th>Owner Full Name</th>
                 <th>Appointment Duration</th>
             </tr>
-        </thead>
+        </thead> 
         <tbody>
             <tr *ngFor="let appointment of appointments">
 
@@ -29,10 +29,7 @@
                 <td><a [routerLink]="['/update',appointment.appointmentId]"><button class="btn btn-primary" (click)="updateButton()">Update</button></a></td>
                 <td><a [routerLink]="['/delete',appointment.appointmentId]"><button class="btn btn-primary" (click)="deleteButton()">Delete</button></a></td>
                 
-                <!-- <td><a [routerLink]="['/appointment-view',appointment.idCardNumber]">View</a></td> -->
-                <!-- <td><button class="btn btn-primary" (click)="updateButton()">Update</button></td> -->
-                <!-- <td><button class="btn btn-primary" (click)="deleteButton()">Delete</button></td> -->
-            </tr>
+                           </tr>
         </tbody>
     </table>
 </div>

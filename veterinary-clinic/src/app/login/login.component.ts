@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 import { Authentication} from "../appointment-list/dto/authentication.dto";
 import { AppointmentBooking} from "../services/appointment.service";
 
@@ -12,10 +14,17 @@ import { AppointmentBooking} from "../services/appointment.service";
 
   export class LoginComponent implements OnInit {
 
+    isUserLoggedIn: boolean = false;
+    //private _isLoggedin$ = new BehaviorSubject<boolean>(false)
+    //$isLoggedin = this._isLoggedin$.asObservable();
+
     appForm!: FormGroup;
     authentication!: Authentication;
   
-    constructor(private formBuilder: FormBuilder, private authenticationService: AppointmentBooking) { }
+    constructor(
+      private formBuilder: FormBuilder, 
+      private authenticationService: AppointmentBooking,
+      private router: Router) { }
   
     ngOnInit(): void {
       this.appForm = this.formBuilder.group({
@@ -31,19 +40,27 @@ import { AppointmentBooking} from "../services/appointment.service";
         
       this.authenticationService.createAuthenticationToken(this.authentication).subscribe((res: any) => {
         this.authentication = res;
-        console.log("From Login");
+
+        
+        
         //console.log(localStorage);
         //localStorage.removeItem('token');
         localStorage.setItem('returnedRole', res.role);
         localStorage.setItem('returnedUsername', res.username);
         localStorage.setItem('returnedToken', res.jwtToken)
-        console.log(localStorage);
+        localStorage.setItem('isUserLoggedIn', this.isUserLoggedIn ? "false" : "true"); 
+        //console.log(localStorage);
+
+        
+        //this._isLoggedin$.next(true);
+        //const $isrole = localStorage.getItem('isUserLoggedIn');
+        //console.log(_isLoggedin);
       })
+      
+
+      this.router.navigate(['/appointment-list']);
     }
 }
-
-
-
 
 
 // user: test.vet@pethealth.com          pw: Pa$$w0rd role: vet

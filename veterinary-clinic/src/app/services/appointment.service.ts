@@ -26,7 +26,6 @@ export class AppointmentBooking {
         return this.httpClient.post<Authentication>(this.end, authentication);
     }
     
-    
     constructor (private httpClient: HttpClient) {}
 
     getAppointments(): Observable<Appointment[]> {
@@ -35,7 +34,7 @@ export class AppointmentBooking {
     }
 
     getAppointmentById(id: number): Observable<Appointment> {
-        return this.httpClient.get<Appointment>(this.endpoint + "/" + id);
+        return this.httpClient.get<Appointment>(this.endpoint + "/" + id, this.httpHeader);
     }
 
     addAppointment(appointment: Appointment): Observable<Appointment> {
