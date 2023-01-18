@@ -7,7 +7,7 @@ import { AppointmentViewComponent } from './appointment-view/appointment-view.co
 import { UpdateComponent } from './update/update.component';
 import { DeleteComponent } from './delete/delete.component';
 import { AppointmentViewGuardService } from './services/appointment-view-guard.service';
-
+import { LoginComponent } from './login/login.component';
 
 
 const routes: Routes = [
@@ -28,6 +28,7 @@ const routes: Routes = [
     canActivate: [AppointmentViewGuardService]
   },
   {path: 'add-appointment', component: AddAppointmentComponent},
+  {path: 'login', component: LoginComponent},
   {path: '',redirectTo:'/appointment-list', pathMatch:'full'}
   // {path: 'update', component: UpdateComponent},
 ];

@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Appointment } from '../appointment-list/dto/appointment.dto';
 import { AppointmentBooking } from '../services/appointment.service';
+import { appointmentDateValidator2 } from '../validators/appointmentDate.validator';
+import { ownerIdCardNumberValidator } from '../validators/ownerIdCardNumber.validator';
 
 @Component({
   selector: 'app-add-appointment',
@@ -19,18 +21,18 @@ export class AddAppointmentComponent implements OnInit{
   ngOnInit(): void {
     this.appForm = this.formBuilder.group({
       animalType: ['',[Validators.required]],
-      appointmentDate:['',[Validators.required]],
+      appointmentDate:['',[Validators.required]], //, new appointmentDateValidator2()
       appointmentDuration: ['',[Validators.required]],
       appointmentTime: ['',[Validators.required]],
-      ownerContactNumber: ['',[Validators.required]],
-      ownerIdCardNumber: ['',[Validators.required]],
+      ownerContactNumber: ['',[Validators.required, Validators.pattern("^[0-9]*$"),Validators.minLength(8),Validators.maxLength(8)]],
+      ownerIdCardNumber: ['',[Validators.required, ownerIdCardNumberValidator()]],
       ownerName: ['',[Validators.required]],
       ownerSurname: ['',[Validators.required]],
       patientName: ['',[Validators.required]],
       reasonForAppointment: ['',[Validators.required]],
       vetNotes: ['',[Validators.required]]
     });
-  }
+  } 
 
   submitForm() {
     const format = "dd/MM/yyyy" 

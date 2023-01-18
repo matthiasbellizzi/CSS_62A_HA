@@ -10,10 +10,14 @@
                     class="form-control"
                     formControlName="ownerIdCardNumber"
                     id="txtownerIdCardNumber"
-                    placeholder="Enter owner Id Card Number">                    
+                    placeholder="Enter owner Id Card Number">
+                    
+                     <span class="help-block" *ngIf="appForm.get('ownerIdCardNumber')?.errors && (appForm.get('ownerIdCardNumber')?.dirty || appForm.get('ownerIdCardNumber')?.touched)">
+                        <p *ngIf="appForm.get('ownerIdCardNumber')?.errors?.['ownerIdCardNumberInvalid']" class="text-danger">Input valid format 'eg. 0276600L' - 7 numbers, followed by a Capital letter(A, L or M)</p>
+                    </span>
             </div>     
             
-            <div class="form-group">
+            <div class="form-group"> 
                 <label for="txtpatientName">patient Name</label>
                 <input
                     type="text"
@@ -70,7 +74,11 @@
                     class="form-control"
                     formControlName="appointmentDate"
                     id="txtappointmentDate"
-                    placeholder="Enter appointment Date">                  
+                    placeholder="Enter appointment Date">
+
+                    <span class="help-block" *ngIf="appForm.get('appointmentDate')?.errors && (appForm.get('appointmentDate')?.dirty || appForm.get('appointmentDate')?.touched)">
+                        <p *ngIf="appForm.get('appointmentDate')?.errors?.['appointmentDateInvalid']" class="text-danger">Date cannot be in the past</p>
+                    </span>            
             </div>  
 
             <div class="form-group">
@@ -90,8 +98,14 @@
                     class="form-control"
                     formControlName="ownerContactNumber"
                     id="txtownerContactNumber"
-                    placeholder="Enter owner Contact Number">                  
-            </div>  
+                    placeholder="Enter owner Contact Number"> 
+                    
+                <span class="help-block" *ngIf="appForm.get('ownerContactNumber')?.errors && (appForm.get('ownerContactNumber')?.dirty || appForm.get('ownerContactNumber')?.touched)">
+                    <p *ngIf="appForm.get('ownerContactNumber')?.errors?.['pattern']" class="text-danger">Input digits only</p>
+                    <p *ngIf="appForm.get('ownerContactNumber')?.errors?.['minLength']" class="text-danger">Phone should be 8 numbers</p> 
+                    <p *ngIf="appForm.get('ownerContactNumber')?.errors?.['maxLength']" class="text-danger">Phone should be 8 numbers</p>
+                </span>
+            </div>
 
             <div class="form-group">
                 <label for="txtreasonForAppointment">reason For Appointment</label>

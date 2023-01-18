@@ -1,8 +1,8 @@
 <div class="card">
-    <h5 class="card-header">Add an Appointment</h5>
+    <h5 class="card-header">Edit Appointment</h5>
     <div class="card-body">
-        <form novalidate [formGroup]="updateForm" (ngSubmit)="submitForm()">
-    
+        <form novalidate [formGroup]="appForm" (ngSubmit)="submitForm()" *ngIf="appForm">
+
             <div class="form-group">
                 <label for="txtownerIdCardNumber">Id Card Number</label>
                 <input
@@ -10,8 +10,9 @@
                     class="form-control"
                     formControlName="ownerIdCardNumber"
                     id="txtownerIdCardNumber"
-                    value = ownerIdCardNumber>                    
-            </div>     
+                    placeholder="Enter Owner Id Number">                  
+            </div>    
+
             
             <div class="form-group">
                 <label for="txtpatientName">patient Name</label>
@@ -32,7 +33,7 @@
                     id="txtanimalType"
                     placeholder="Enter animal Type">                  
             </div>   
-            
+             
             <div class="form-group">
                 <label for="txtownerName">owner Name</label>
                 <input
@@ -115,7 +116,7 @@
                       
             
             <div class="mt-2">
-                <button type="submit" [disabled]="!updateForm.valid" class="btn btn-primary" >Submit</button>
+                <button type="submit" [disabled]="!appForm.valid" class="btn btn-primary">Submit</button>
             </div>
         </form>
     </div>

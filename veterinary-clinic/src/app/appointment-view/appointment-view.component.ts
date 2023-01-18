@@ -30,4 +30,4 @@ export class AppointmentViewComponent implements OnInit {
     this.router.navigate(['/appointment-list']);
   }
 }
- 
+  

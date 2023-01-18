@@ -1,25 +1,37 @@
-import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { Appointment } from "../appointment-list/dto/appointment.dto";
+import { Authentication} from "../appointment-list/dto/authentication.dto";
 
 @Injectable()
 export class AppointmentBooking {
-
+    //   }  
+    
     endpoint: string = 'http://localhost:8080/appointment';
-
+    end: string = 'http://localhost:8080/authenticate';
+    
     httpHeader = {
         headers: new HttpHeaders({
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + localStorage.getItem("returnedToken")
         })
-    }
+    } 
 
-    constructor (private httpClient: HttpClient) {
+    createAuthenticationToken(authentication: Authentication): Observable<Authentication>  {
+        console.log(localStorage);
 
+        console.log("From Service - API");
+        console.log(JSON.parse(localStorage.getItem("returnedJSON")!));
+        return this.httpClient.post<Authentication>(this.end, authentication);
     }
+    
+    
+    constructor (private httpClient: HttpClient) {}
 
     getAppointments(): Observable<Appointment[]> {
-        return this.httpClient.get<Appointment[]>(this.endpoint);
+        console.log(localStorage);
+        return this.httpClient.get<Appointment[]>(this.endpoint, this.httpHeader);
     }
 
     getAppointmentById(id: number): Observable<Appointment> {
@@ -31,6 +43,7 @@ export class AppointmentBooking {
     }
 
     updateAppointment(appointment: Appointment): Observable<Appointment> {
+        console.log(JSON.parse(localStorage.getItem("returnedJSON")!));
         return this.httpClient.put<Appointment>(this.endpoint, appointment, this.httpHeader);
     }
 

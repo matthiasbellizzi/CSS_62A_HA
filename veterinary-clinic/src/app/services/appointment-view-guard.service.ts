@@ -9,7 +9,6 @@ export class AppointmentViewGuardService implements CanActivate {
 
     }
 
-
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
         
         const id: any = route.paramMap.get('id');
