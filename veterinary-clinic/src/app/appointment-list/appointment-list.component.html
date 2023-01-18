@@ -27,9 +27,10 @@
 
                 <td><a [routerLink]="['/appointment-list',appointment.appointmentId]"><button class="btn btn-primary" (click)="viewButton()">View</button></a></td>
                 <td><a [routerLink]="['/update',appointment.appointmentId]"><button class="btn btn-primary" (click)="updateButton()">Update</button></a></td>
+                <div *appHideForRoles = "['RECEPTIONIST','VET']">
                 <td><a [routerLink]="['/delete',appointment.appointmentId]"><button class="btn btn-primary" (click)="deleteButton()">Delete</button></a></td>
-                
-                           </tr>
+                </div>
+                </tr>
         </tbody>
     </table>
 </div>

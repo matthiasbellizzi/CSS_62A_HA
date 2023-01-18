@@ -13,6 +13,7 @@ import { AddAppointmentComponent } from './add-appointment/add-appointment.compo
 import { UpdateComponent } from './update/update.component';
 import { DeleteComponent } from './delete/delete.component';
 import { LoginComponent } from './login/login.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -30,10 +31,12 @@ import { LoginComponent } from './login/login.component';
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule
   ],
   providers: [
-    AppointmentBooking
+    AppointmentBooking,
+    SharedModule
   ],
   bootstrap: [AppComponent]
 })

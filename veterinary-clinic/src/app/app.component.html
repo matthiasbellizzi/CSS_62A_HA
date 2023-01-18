@@ -8,24 +8,30 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" routerLink="/appointment-list" >{{title}}</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/add-appointment" routerLinkActive="active">Add</a>
-        </li>
+        <div *appHideForRoles = "['VET']">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/add-appointment" routerLinkActive="active">Add</a>
+          </li>
+        </div>
+        
         <li class="nav-item">
           <a class="nav-link" routerLink="/appointment-list" routerLinkActive="active">List</a>
         </li>
         
       </ul>
+      <!-- RECEPTIONIST -->
       <!-- role="search" -->
-      <form class="d-flex">
-        <li class="nav-item">
-          <td><button class="btn btn-primary" (click)="logoutButton()">Log out</button></td>
-        </li>
-        <!-- *ngIf="loginComponent.$isLoggedin | async"  -->
-        <li class="nav-item" >
-          <td><a routerLink="/login"><button class="btn btn-primary">Log In</button></a></td>
-        </li>
-      </form>
+      <!-- <div *appHideForRoles = "['RECEPTIONIST']"> -->
+        <form class="d-flex" >
+          <li class="nav-item">
+            <td><button class="btn btn-primary" (click)="logoutButton()">Log out</button></td>
+          </li>
+          <!-- *ngIf="loginComponent.$isLoggedin | async"  -->
+          <li class="nav-item" >
+            <td><a routerLink="/login"><button class="btn btn-primary">Log In</button></a></td>
+          </li>
+        </form>
+    <!-- </div> -->
     </div>
   </div>
 </nav>

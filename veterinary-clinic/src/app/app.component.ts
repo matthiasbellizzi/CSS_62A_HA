@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 
 @Component({
@@ -7,6 +8,9 @@ import { LoginComponent } from './login/login.component';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  constructor(
+    private router: Router) { }
+
   title = 'veterinary-clinic';
 
 
@@ -16,6 +20,9 @@ export class AppComponent {
       localStorage.removeItem('returnedRole');
       localStorage.removeItem('returnedUsername');
       localStorage.removeItem('returnedToken');
+
+      this.router.navigate(['/login']);
       //localStorage.removeItem('isUserLoggedIn'); 
     }
 }
+ 
