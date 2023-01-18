@@ -8,11 +8,11 @@
         <thead >
             <tr>
                 <th>Id</th>
-                <th>Pet Name</th>
-                <th>Breed</th>
+                <th>Patient Name</th>
+                <th>Animal Type</th>
+                <th>Owner Name</th>
+                <th>Owner Surname</th>
                 <th>Appointment Date and Time</th>
-
-                <th>Owner Full Name</th>
                 <th>Appointment Duration</th>
             </tr>
         </thead> 
@@ -20,15 +20,12 @@
             <tr *ngFor="let appointment of appointments">
 
                 <td>{{appointment.appointmentId}}</td>
-                <td>{{appointment.ownerIdCardNumber}}</td>
                 <td>{{appointment.patientName}}</td>
                 <td>{{appointment.animalType}}</td>
-                <td>{{appointment.ownerName + ' '  + appointment.ownerSurname}}</td>
-                <td>{{appointment.appointmentDuration}}</td>
+                <td>{{appointment.ownerName}}</td>
+                <td>{{appointment.ownerSurname}}</td>
                 <td>{{appointment.appointmentDate + ' ' + appointment.appointmentTime}}</td>
-                <td>{{appointment.ownerContactNumber}}</td>
-                <td>{{appointment.reasonForAppointment}}</td>
-                <td>{{appointment.vetNotes}}</td>
+                <td>{{appointment.appointmentDuration}}</td>
 
                 <td><a [routerLink]="['/appointment-list',appointment.appointmentId]"><button class="btn btn-primary" (click)="viewButton()">View</button></a></td>
                 <td><a [routerLink]="['/update',appointment.appointmentId]"><button class="btn btn-primary" (click)="updateButton()">Update</button></a></td>

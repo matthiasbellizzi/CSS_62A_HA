@@ -11,27 +11,29 @@ import { AuthGuardGuard } from './auth-guard.guard';
 
 
 const routes: Routes = [
-  {path: 'appointment-list', component: AppointmentListComponent},
+  {
+    path: 'appointment-list', 
+    component: AppointmentListComponent},
   {
     path: 'appointment-list/:id', 
     component: AppointmentViewComponent,
-    canActivate: [AuthGuardGuard]
   },
   {
     path: 'update/:id', 
     component: UpdateComponent,
-    //canActivate: [AuthGuardGuard]
   },
   {
     path: 'delete/:id', 
     component: DeleteComponent,
-    //canActivate: [AuthGuardGuard]
+    canActivate: [AuthGuardGuard]
   },
-  {path: 'add-appointment', component: AddAppointmentComponent},
+  {
+    path: 'add-appointment',
+    component: AddAppointmentComponent,
+    canActivate: [AuthGuardGuard]
+  },
   {path: 'login', component: LoginComponent},
-  {path: '',redirectTo:'/appointment-list', pathMatch:'full'}
-  // {path: 'update', component: UpdateComponent},
-
+  {path: '',redirectTo:'/login', pathMatch:'full'}
 ];
 
 @NgModule({

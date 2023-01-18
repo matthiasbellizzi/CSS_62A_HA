@@ -41,24 +41,17 @@ import { AppointmentBooking} from "../services/appointment.service";
       this.authenticationService.createAuthenticationToken(this.authentication).subscribe((res: any) => {
         this.authentication = res;
 
-        
-        
-        //console.log(localStorage);
-        //localStorage.removeItem('token');
-        localStorage.setItem('returnedRole', res.role);
-        localStorage.setItem('returnedUsername', res.username);
-        localStorage.setItem('returnedToken', res.jwtToken)
-        localStorage.setItem('isUserLoggedIn', this.isUserLoggedIn ? "false" : "true"); 
-        //console.log(localStorage);
-
-        
-        //this._isLoggedin$.next(true);
-        //const $isrole = localStorage.getItem('isUserLoggedIn');
-        //console.log(_isLoggedin);
+        if(localStorage.getItem(res)){
+          localStorage.setItem('returnedRole', res.role);
+          localStorage.setItem('returnedUsername', res.username);
+          localStorage.setItem('returnedToken', res.jwtToken)
+          localStorage.setItem('isUserLoggedIn', this.isUserLoggedIn ? "false" : "true"); 
+          //const $isrole = localStorage.getItem('isUserLoggedIn');
+          this.router.navigate(['/appointment-list']);
+        }else{
+          console.log("login failed");
+        }
       })
-      
-
-      this.router.navigate(['/appointment-list']);
     }
 }
 
